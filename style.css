@@ -1,26 +1,36 @@
-/* WORDPRESS */
-
-.page .entry-title {
-	display: none;
-}
+/*
+    Theme Name: Black Squirrel Entertainment
+    Author: Darien Yoder
+    Author URI:
+    Description: Custom theme for BlackSquirrelRadio.com.
+    Version: 2024.8.2
+    Requires at least: 5.2
+    Tested up to: 6.5
+    Requires PHP: 7.4
+*/
 
 html, body {
     padding: 0;
     margin: 0;
     font-family: sans-serif;
     min-height: 100%;
-	background: blue;
 }
 
-/* HEADER */
+/* WordPress Classes */
 
-header div {
+.page .entry-title {
+	display: none;
+}
+
+/* Header */
+
+#bse-header div {
     position: relative;
     text-align: center;
     margin: 10px;
 }
 
-header img {
+#bse-header img {
     height: 100%;
     aspect-ratio: 1 / 1;
     position: absolute;
@@ -28,12 +38,17 @@ header img {
     left: 0px;
 }
 
-header h1 {
+#bse-header a {
+    color: inherit;
+    text-decoration: none;
+}
+
+#bse-header h1 {
     font-size: xxx-large;
     margin: 0px;
 }
 
-header h2 {
+#bse-header h2 {
     margin: 0px;
 }
 
@@ -54,12 +69,13 @@ nav ul {
     position: relative;
 }
 
-nav a {
+#bse-header nav a {
     text-decoration: none;
     padding-left: 20px;
     padding-right: 20px;
     margin-top: 10px;
     color: white;
+    padding-bottom: 0px;
 }
 
 nav b::before {
@@ -70,11 +86,9 @@ nav b::before {
 nav li {
     display: inline;
     margin: 0px 0px;
-	overflow-y: hidden;
-	padding-bottom: 10px;
 }
 
-nav li:hover {
+nav li:hover, nav #toggled-nav {
     background-color: #414444;
 }
 
@@ -87,10 +101,28 @@ nav li ul {
     right: 0px;
 }
 
-nav li:hover ul, nav li ul:hover {
+li:hover ~ #toggled-nav ul {
+    display: none;
+}
+nav li:hover ul, nav li ul:hover, nav #toggled-nav ul {
     display: block;
 }
 
 nav li ul li:hover {
     background-color: #505556;
 }
+
+/* Main Content */
+
+main {
+    margin-top: 30px;
+}
+
+/* Mobile */
+
+/* @media only screen and (max-aspect-ratio: 1 / 1)
+{
+    * {
+        background-color: blue;
+    }
+} */
