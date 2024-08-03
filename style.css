@@ -3,17 +3,22 @@
     Author: Darien Yoder
     Author URI:
     Description: Custom theme for BlackSquirrelRadio.com.
-    Version: 2024.8.2
+    Version: 2024.8.3.5
     Requires at least: 5.2
     Tested up to: 6.5
     Requires PHP: 7.4
 */
 
-html, body {
+#bse-html, #bse-body {
+    position: absolute;
+    top: 0px;
+    left: 0px;
     padding: 0;
     margin: 0;
     font-family: sans-serif;
     min-height: 100%;
+    width: 100%;
+    scale: 1;
 }
 
 /* WordPress Classes */
@@ -24,41 +29,42 @@ html, body {
 
 /* Header */
 
-#bse-header div {
+#bse-title {
     position: relative;
     text-align: center;
     margin: 10px;
 }
 
-#bse-header img {
+/* #bse-header img {
     height: 100%;
     aspect-ratio: 1 / 1;
     position: absolute;
     top: 0px;
     left: 0px;
-}
+} */
 
 #bse-header a {
     color: inherit;
     text-decoration: none;
 }
 
-#bse-header h1 {
+#bse-header div {
+    position: relative;
+    margin: 0px;
+}
+
+/* Black Squirrel Radio */
+#bse-title h1 {
     font-size: xxx-large;
     margin: 0px;
 }
 
-#bse-header h2 {
+/* See what's up */
+#bse-title h2 {
     margin: 0px;
 }
 
-nav {
-    background: #505556;
-    text-align: center;
-    padding: 0px;
-    font-size: x-large;
-
-}
+/* Navigation */
 
 nav ul {
     list-style: none;
@@ -69,60 +75,157 @@ nav ul {
     position: relative;
 }
 
-#bse-header nav a {
-    text-decoration: none;
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 10px;
-    color: white;
-    padding-bottom: 0px;
-}
-
-nav b::before {
-    content: "• ";
-    color: red;
-}
-
-nav li {
-    display: inline;
-    margin: 0px 0px;
-}
-
-nav li:hover, nav #toggled-nav {
-    background-color: #414444;
-}
-
-nav li ul {
-    display: none;
-    position: absolute;
-    background-color: #414444;
-    top: 100%;
-    left: 0px;
-    right: 0px;
-}
-
-li:hover ~ #toggled-nav ul {
-    display: none;
-}
-nav li:hover ul, nav li ul:hover, nav #toggled-nav ul {
-    display: block;
-}
-
-nav li ul li:hover {
-    background-color: #505556;
-}
-
 /* Main Content */
 
 main {
     margin-top: 30px;
 }
 
-/* Mobile */
+/* Mobile Only */
 
-/* @media only screen and (max-aspect-ratio: 1 / 1)
+@media only screen and (max-aspect-ratio: 1 / 1)
 {
-    * {
-        background-color: blue;
+
+    #bse-header {
+        height: 90px;
+        background: red;
     }
-} */
+
+    #bse-title {
+        display: none;
+    }
+
+    #bse-logo {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        --logo-size: 70px;
+        height: var(--logo-size);
+        width: var(--logo-size);
+    }
+
+    #nav-burger {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        height: 70px;
+        width: 70px;
+        cursor: pointer;
+    }
+
+    #nav-burger img {
+        height: 70px;
+        width: 70px;
+    }
+
+    #bse-header nav {
+        display: none;
+        position: absolute;
+        top: 90px;
+        width: 100%;
+        background: darkred;
+        color: white
+    }
+
+    #bse-header nav li {
+        display: block;
+        padding-left: 20px;
+        cursor: pointer;
+        position: relative;
+    }
+
+    #bse-header nav li a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 100%;
+        z-index: 2;
+        font-size: 5vh;
+        display: block;
+    }
+
+    .bse-submenu {
+        display: block;
+        width: calc(100vw - 20px);
+        height: 100%;
+    }
+
+    .bse-submenu a {
+        pointer-events: none;
+    }
+
+    #bse-header nav li ul {
+        display: none;
+    }
+
+    #bse-header #toggled-nav ul {
+        display: block;
+    }
+}
+
+/* Desktop Only */
+
+@media only screen and (min-aspect-ratio: 1 / 1)
+{
+    #bse-logo {
+        height: calc(100% - 20px);
+        aspect-ratio: 1 / 1;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+
+    #nav-burger {
+        display: none;
+    }
+
+    nav {
+        background: #505556;
+        text-align: center;
+        padding: 0px;
+        font-size: x-large;
+
+    }
+
+    #bse-header nav a {
+        text-decoration: none;
+        padding-left: 20px;
+        padding-right: 20px;
+        margin-top: 10px;
+        color: white;
+        padding-bottom: 0px;
+    }
+
+    nav b::before {
+        content: "• ";
+        color: red;
+    }
+
+    nav li {
+        display: inline;
+        margin: 0px 0px;
+    }
+
+    nav li:hover, nav #toggled-nav {
+        background-color: #414444;
+    }
+
+    nav li ul {
+        display: none;
+        position: absolute;
+        background-color: #414444;
+        top: 100%;
+        left: 0px;
+        right: 0px;
+    }
+
+    li:hover ~ #toggled-nav ul {
+        display: none;
+    }
+    nav li:hover ul, nav li ul:hover, nav #toggled-nav ul {
+        display: block;
+    }
+
+    nav li ul li:hover {
+        background-color: #505556;
+    }
+}

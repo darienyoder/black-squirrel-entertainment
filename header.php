@@ -1,25 +1,30 @@
 <!DOCTYPE html>
-<html <?php language_attributes(); ?> <?php blankslate_schema_type(); ?>>
+<html id="bse-html" lang="en-US" onload="main();" <?php /*language_attributes();*/ ?> <?php /*blankslate_schema_type();*/ ?>>
     <head>
         <meta charset="<?php bloginfo( 'charset' ); ?>">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="/wp-content/themes/BlackSquirrelEntertainment/style.css?ver=2024.8.2">
-        <?php wp_head(); ?>
+        <link rel="stylesheet" href="/wp-content/themes/BlackSquirrelEntertainment/style.css?ver=2024.8.3.5">
+        <script src="/wp-content/themes/BlackSquirrelEntertainment/main.js" charset="utf-8"></script>
+        <?php /* wp_head(); */ ?>
     </head>
-    <body <?php body_class(); ?>>
-        <?php wp_body_open(); ?>
+    <body id="bse-body" <?php /*body_class();*/ ?>>
+        <?php /* wp_body_open(); */ ?>
         <header id="bse-header">
             <div>
-                <a href="/home"><img src="temp-icon.png" alt=""></a>
-                <a href="/home">
+                <a href="/home"><img id="bse-logo" src="temp-icon.png" alt=""></a>
+                <a id="bse-title" href="/home">
                     <h1>Black Squirrel Entertainment</h1>
                     <h2>See what's up</h2>
                 </a>
+                <a id="nav-burger" ref="javascript:void(0);" class="icon" onclick="toggleNav();">
+                    <img src="temp-icon.png">
+                </a>
             </div>
-            <nav>
+            <nav id="nav-links">
                 <ul>
-                    <li <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/tv")) {echo "id='toggled-nav'";} ?>>
-                        <a href="/tv">TV</a
+                    <li onclick="openNavSubmenu(this);" <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/tv")) {echo "id='toggled-nav'";} ?>
+                        ><span class="bse-submenu"
+                        ><a href="/tv">TV</a></span
                         ><ul>
                             <li>
                                 <a href="/tv"><b>WATCH</b></a>
@@ -32,8 +37,9 @@
                             </li>
                         </ul
                     ></li
-                    ><li <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/radio")) {echo "id='toggled-nav'";} ?>
-                        ><a href="/radio">Radio</a
+                    ><li onclick="openNavSubmenu(this);" <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/radio")) {echo "id='toggled-nav'";} ?>
+                        ><span class="bse-submenu"
+                        ><a href="/radio">Radio</a></span
                         ><ul>
                             <li>
                                 <a href="/radio"><b>LISTEN</b></a>

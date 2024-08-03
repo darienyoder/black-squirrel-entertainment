@@ -1,22 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html id="bse-html" lang="en-US" onload="main();">
     <head>
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="style.css">
+        <script src="main.js" charset="utf-8"></script>
     </head>
-    <body
+    <body id="bse-body">
         <header id="bse-header">
             <div>
-                <a href="/home"><img src="temp-icon.png" alt=""></a>
-                <a href="/home">
+                <a href="/home"><img id="bse-logo" src="temp-icon.png" alt=""></a>
+                <a id="bse-title" href="/home">
                     <h1>Black Squirrel Entertainment</h1>
                     <h2>See what's up</h2>
                 </a>
+                <a id="nav-burger" ref="javascript:void(0);" class="icon" onclick="toggleNav();">
+                    <img src="temp-icon.png">
+                </a>
             </div>
-            <nav>
+            <nav id="nav-links">
                 <ul>
-                    <li id="toggled-nav">
-                        <a href="/tv">TV</a
+                    <li onclick="openNavSubmenu(this);"
+                        ><span class="bse-submenu"
+                        ><a href="/tv">TV</a></span
                         ><ul>
                             <li>
                                 <a href="/tv"><b>WATCH</b></a>
@@ -29,8 +34,9 @@
                             </li>
                         </ul
                     ></li
-                    ><li
-                        ><a href="/radio">Radio</a
+                    ><li onclick="openNavSubmenu(this);"
+                        ><span class="bse-submenu"
+                        ><a href="/radio">Radio</a></span
                         ><ul>
                             <li>
                                 <a href="/radio"><b>LISTEN</b></a>
