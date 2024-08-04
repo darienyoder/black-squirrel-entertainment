@@ -19,10 +19,20 @@ function toggleNav()
 
 function openNavSubmenu(submenu)
 {
+    if (submenu.id == "toggled-nav")
+    {
+        setTimeout(10, closeNavSubmenu(submenu));
+        return;
+    }
     let current = document.getElementById("toggled-nav");
     if (current)
     {
         current.id = "";
     }
     submenu.id = "toggled-nav";
+}
+
+function closeNavSubmenu(submenu)
+{
+    submenu.id = "";
 }

@@ -3,7 +3,7 @@
     <head>
         <meta charset="<?php bloginfo( 'charset' ); ?>">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="/wp-content/themes/BlackSquirrelEntertainment/style.css?ver=2024.8.3.11">
+        <link rel="stylesheet" href="/wp-content/themes/BlackSquirrelEntertainment/style.css?ver=2024.8.4.12">
         <script src="/wp-content/themes/BlackSquirrelEntertainment/main.js" charset="utf-8"></script>
         <?php /* wp_head(); */ ?>
     </head>
@@ -11,13 +11,14 @@
         <?php /* wp_body_open(); */ ?>
         <header id="bse-header">
             <div>
-                <a href="/home"><img id="bse-logo" src="temp-icon.png" alt=""></a>
+                <a href="/home"><img id="bse-logo" src="/wp-content/themes/BlackSquirrelEntertainment/assets/icon.png" alt=""></a>
                 <a id="bse-title" href="/home">
-                    <h1>Black Squirrel Entertainment</h1>
-                    <h2>See what's up</h2>
+                    <img src="/wp-content/themes/BlackSquirrelEntertainment/assets/bse-header.png" alt="Black Squirrel Entertainment" height="60px">
+                    <!-- <h1>Black Squirrel Entertainment</h1>
+                    <h2>See what's up</h2> -->
                 </a>
                 <a id="nav-burger" ref="javascript:void(0);" class="icon" onclick="toggleNav();">
-                    <img src="temp-icon.png">
+                    <img src="/wp-content/themes/BlackSquirrelEntertainment/assets/menu-icon.png">
                 </a>
             </div>
             <nav id="nav-links">
@@ -57,6 +58,9 @@
                     ></li
                     ><li
                         ><a href="/about">About</a>
+                    </li
+                    ><li
+                        ><a href="/about">Join</a>
                     </li>
                 </ul>
             </nav>
