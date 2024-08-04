@@ -3,7 +3,7 @@
     <head>
         <meta charset="<?php bloginfo( 'charset' ); ?>">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="/wp-content/themes/BlackSquirrelEntertainment/style.css?ver=2024.8.3.7">
+        <link rel="stylesheet" href="/wp-content/themes/BlackSquirrelEntertainment/style.css?ver=2024.8.3.11">
         <script src="/wp-content/themes/BlackSquirrelEntertainment/main.js" charset="utf-8"></script>
         <?php /* wp_head(); */ ?>
     </head>

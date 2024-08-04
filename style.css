@@ -2,7 +2,7 @@
     Theme Name: Black Squirrel Entertainment
     Author: Darien Yoder
     Description: Custom theme for BlackSquirrelRadio.com.
-    Version: 2024.8.3.7
+    Version: 2024.8.3.11
     Requires at least: 5.2
     Tested up to: 6.5
     Requires PHP: 7.4
@@ -99,10 +99,7 @@ main {
 }
 
 .radio-show-grid .show-entry {
-    background-color: blue;
-    margin: 20px;
     aspect-ratio: 1 / 1;
-    position: relative;
 }
 
 .show-entry img {
@@ -162,6 +159,10 @@ main {
         color: white
     }
 
+    nav {
+        z-index: 1000;
+    }
+
     #bse-header nav li {
         display: block;
         padding-left: 20px;
@@ -194,6 +195,14 @@ main {
 
     #bse-header #toggled-nav ul {
         display: block;
+    }
+
+    #show-grid {
+        grid-template-columns: repeat(2, auto);
+    }
+
+    .show-entry {
+        margin: 10px;
     }
 }
 
