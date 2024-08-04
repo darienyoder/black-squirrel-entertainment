@@ -2,7 +2,7 @@
     Theme Name: Black Squirrel Entertainment
     Author: Darien Yoder
     Description: Custom theme for BlackSquirrelRadio.com.
-    Version: 2024.8.4.12
+    Version: 2024.8.4.18
     Requires at least: 5.2
     Tested up to: 6.5
     Requires PHP: 7.4
@@ -86,6 +86,31 @@ nav ul {
 
 main {
     padding: 20px;
+}
+
+/* Livestream */
+
+#livestream-wrapper {
+    display: flex;
+}
+
+#livestream {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    flex: 1;
+}
+
+#livestream-details {
+    flex: 1;
+}
+
+#livestream-details h2 {
+    font-size: xx-large;
+    margin-top: 0px;
+}
+
+#livestream-details h3 {
+    font-size: x-large;
 }
 
 /* Shows Page */
@@ -227,6 +252,14 @@ main {
         display: block;
     }
 
+    #livestream-wrapper {
+        flex-direction: column;
+    }
+
+    #livestream-details {
+        padding-top: 20px;
+    }
+
     #show-grid {
         grid-template-columns: repeat(2, auto);
     }
@@ -301,5 +334,13 @@ main {
 
     nav li ul li:hover {
         background-color: #505556;
+    }
+
+    #livestream-wrapper {
+        flex-direction: row;
+    }
+
+    #livestream-details {
+        padding-left: 20px;
     }
 }

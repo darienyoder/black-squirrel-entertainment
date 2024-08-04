@@ -8,18 +8,18 @@
     <body id="bse-body">
         <header id="bse-header">
             <div>
-                <a href="/home"><img id="bse-logo" src="temp-icon.png" alt=""></a>
+                <a href="/home"><img id="bse-logo" src="assets/icon.png" alt=""></a>
                 <a id="bse-title" href="/home">
                     <h1>BSE Test Webpage</h1>
                     <h2>NOT the live website</h2>
                 </a>
                 <a id="nav-burger" ref="javascript:void(0);" class="icon" onclick="toggleNav();">
-                    <img src="temp-icon.png">
+                    <img src="assets/menu-icon.png">
                 </a>
             </div>
             <nav id="nav-links">
                 <ul>
-                    <li onclick="openNavSubmenu(this);"
+                    <li id="toggled-nav" onclick="openNavSubmenu(this);"
                         ><span class="bse-submenu"
                         ><a href="/tv">TV</a></span
                         ><ul>
@@ -59,5 +59,12 @@
             </nav>
         </header>
         <main>
-            
+            <h1>Black Squirrel TV</h1>
+            <div id="livestream-wrapper">
+                <iframe id="livestream" src="https://www.youtube.com/embed/B4-L2nfGcuE?si=Bqu1ep7skzx7AZ4t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <div id="livestream-details">
+                    <h2>Now Playing: Grab Bag</h2>
+                    <h3>S1E10 - Bottom of the Bag</h3>
+                </div>
+            </div>
         </main>

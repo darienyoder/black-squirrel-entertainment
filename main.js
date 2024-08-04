@@ -1,7 +1,7 @@
 
 function main()
 {
-    document.getElementById("blankslate-style-css").remove();
+    
 }
 
 function toggleNav()

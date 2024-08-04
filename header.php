@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html id="bse-html" lang="en-US" onload="main();" <?php /*language_attributes();*/ ?> <?php /*blankslate_schema_type();*/ ?>>
+<html id="bse-html" lang="en-US" <?php /*language_attributes();*/ ?> <?php /*blankslate_schema_type();*/ ?>>
     <head>
         <meta charset="<?php bloginfo( 'charset' ); ?>">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="/wp-content/themes/BlackSquirrelEntertainment/style.css?ver=2024.8.4.12">
+        <link rel="stylesheet" href="/wp-content/themes/BlackSquirrelEntertainment/style.css?ver=2024.8.4.18">
         <script src="/wp-content/themes/BlackSquirrelEntertainment/main.js" charset="utf-8"></script>
-        <?php /* wp_head(); */ ?>
+        <?php wp_head(); ?>
     </head>
-    <body id="bse-body" <?php /*body_class();*/ ?>>
+    <body id="bse-body" onload="main();" <?php /*body_class();*/ ?>>
         <?php /* wp_body_open(); */ ?>
         <header id="bse-header">
             <div>
