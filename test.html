@@ -10,8 +10,8 @@
             <div>
                 <a href="/home"><img id="bse-logo" src="temp-icon.png" alt=""></a>
                 <a id="bse-title" href="/home">
-                    <h1>Black Squirrel Entertainment</h1>
-                    <h2>See what's up</h2>
+                    <h1>BSE Test Webpage</h1>
+                    <h2>NOT the live website</h2>
                 </a>
                 <a id="nav-burger" ref="javascript:void(0);" class="icon" onclick="toggleNav();">
                     <img src="temp-icon.png">
@@ -59,3 +59,13 @@
             </nav>
         </header>
         <main>
+            <h1>All Shows</h1>
+            <div id="show-grid">
+            </div>
+            <script>
+                for (var i = 0; i < 25; i++) {
+                    document.getElementById("show-grid").innerHTML +=
+                        '<a class="show-entry"><img></a>';
+                }
+            </script>
+        </main>

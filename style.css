@@ -1,9 +1,8 @@
 /*
     Theme Name: Black Squirrel Entertainment
     Author: Darien Yoder
-    Author URI:
     Description: Custom theme for BlackSquirrelRadio.com.
-    Version: 2024.8.3.5
+    Version: 2024.8.3.7
     Requires at least: 5.2
     Tested up to: 6.5
     Requires PHP: 7.4
@@ -27,6 +26,13 @@
 	display: none;
 }
 
+/* General */
+
+h1 {
+    font-size: xxx-large;
+    text-align: center;
+}
+
 /* Header */
 
 #bse-title {
@@ -34,14 +40,6 @@
     text-align: center;
     margin: 10px;
 }
-
-/* #bse-header img {
-    height: 100%;
-    aspect-ratio: 1 / 1;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-} */
 
 #bse-header a {
     color: inherit;
@@ -53,13 +51,13 @@
     margin: 0px;
 }
 
-/* Black Squirrel Radio */
+/* "Black Squirrel Entertainment" */
 #bse-title h1 {
     font-size: xxx-large;
     margin: 0px;
 }
 
-/* See what's up */
+/* "See what's up" */
 #bse-title h2 {
     margin: 0px;
 }
@@ -78,7 +76,44 @@ nav ul {
 /* Main Content */
 
 main {
-    margin-top: 30px;
+    margin-top: 50px;
+}
+
+/* Shows Page */
+
+#show-grid {
+    background-color: red;
+    width: 100%;
+    display: grid;
+    /* grid-template-columns: repeat(auto-fill, minmax(100px, 200px)); */
+    /* grid-auto-columns: max-content; */
+    /* grid-auto-rows: 100px; */
+    grid-template-columns: repeat(4, auto);
+}
+
+.show-entry {
+    background-color: blue;
+    margin: 20px;
+    aspect-ratio: 4 / 5;
+    position: relative;
+}
+
+.radio-show-grid .show-entry {
+    background-color: blue;
+    margin: 20px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+}
+
+.show-entry img {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: yellow;
 }
 
 /* Mobile Only */
