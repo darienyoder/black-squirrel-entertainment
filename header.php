@@ -3,11 +3,25 @@
     <head>
         <meta charset="<?php bloginfo( 'charset' ); ?>">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="/wp-content/themes/BlackSquirrelEntertainment/style.css?ver=2024.8.4.18">
+        <link rel="stylesheet" href="/wp-content/themes/BlackSquirrelEntertainment/style.css?ver=2024.8.4.25">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
         <script src="/wp-content/themes/BlackSquirrelEntertainment/main.js" charset="utf-8"></script>
+        <script>
+
+function bse_main()
+{
+    if (window.location.pathname.startsWith("/tv/shows/") && window.location.pathname != "/tv/shows/")
+    {
+        document.getElementById("nav-links").scrollIntoView();
+    }
+}
+
+        </script>
         <?php wp_head(); ?>
     </head>
-    <body id="bse-body" onload="main();" <?php /*body_class();*/ ?>>
+    <body id="bse-body" onload="bse_main();" <?php /*body_class();*/ ?>>
         <?php /* wp_body_open(); */ ?>
         <header id="bse-header">
             <div>
@@ -23,7 +37,7 @@
             </div>
             <nav id="nav-links">
                 <ul>
-                    <li onclick="openNavSubmenu(this);" <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/tv")) {echo "id='toggled-nav'";} ?>
+                    <li class="bse-tall-link" onclick="openNavSubmenu(this);" <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/tv")) {echo "id='toggled-nav'";} ?>
                         ><span class="bse-submenu"
                         ><a href="/tv">TV</a></span
                         ><ul>
@@ -38,7 +52,7 @@
                             </li>
                         </ul
                     ></li
-                    ><li onclick="openNavSubmenu(this);" <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/radio")) {echo "id='toggled-nav'";} ?>
+                    ><li class="bse-tall-link" onclick="openNavSubmenu(this);" <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/radio")) {echo "id='toggled-nav'";} ?>
                         ><span class="bse-submenu"
                         ><a href="/radio">Radio</a></span
                         ><ul>

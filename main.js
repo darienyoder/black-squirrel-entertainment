@@ -1,7 +1,10 @@
 
 function main()
 {
-    
+    if (window.location.pathname.startsWith("/tv/shows/") && window.location.pathname != "/tv/shows/")
+    {
+        document.getElementById("nav-links").scrollIntoView();
+    }
 }
 
 function toggleNav()
@@ -19,17 +22,20 @@ function toggleNav()
 
 function openNavSubmenu(submenu)
 {
-    if (submenu.id == "toggled-nav")
+    if (offestWidth / offsetHeight > 1.0)
     {
-        setTimeout(10, closeNavSubmenu(submenu));
-        return;
+        if (submenu.id == "toggled-nav")
+        {
+            setTimeout(10, closeNavSubmenu(submenu));
+            return;
+        }
+        let current = document.getElementById("toggled-nav");
+        if (current)
+        {
+            current.id = "";
+        }
+        submenu.id = "toggled-nav";
     }
-    let current = document.getElementById("toggled-nav");
-    if (current)
-    {
-        current.id = "";
-    }
-    submenu.id = "toggled-nav";
 }
 
 function closeNavSubmenu(submenu)
