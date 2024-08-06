@@ -5,21 +5,22 @@
         <link rel="stylesheet" href="style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
         <script src="main.js" charset="utf-8"></script>
     </head>
     <body id="bse-body">
         <header id="bse-header">
-            <div>
+            <!-- <div> -->
                 <a href="/home"><img id="bse-logo" src="assets/icon.png" alt=""></a>
                 <a id="bse-title" href="/home">
-                    <h1>BSE Test Webpage</h1>
-                    <h2>NOT the live website</h2>
+                    <img src="assets/darien-logo.png" alt="Black Squirrel Entertainment">
+                    <!-- <h1>BSE Test Webpage</h1>
+                    <h2>NOT the live website</h2> -->
                 </a>
                 <a id="nav-burger" ref="javascript:void(0);" class="icon" onclick="toggleNav();">
                     <img src="assets/menu-icon.png">
                 </a>
-            </div>
+            <!-- </div> -->
             <nav id="nav-links">
                 <ul>
                     <li id="toggled-nav" onclick="openNavSubmenu(this);"
@@ -27,50 +28,40 @@
                         ><a href="/tv">TV</a></span
                         ><ul>
                             <li>
-                                <a href="/tv"><b>WATCH</b></a>
+                                <span><a href="/tv"><b>LIVE</b></a></span>
                             </li>
                             <li>
-                                <a href="/tv/schedule">Schedule</a>
+                                <span><a href="/tv/schedule">SCHEDULE</a></span>
                             </li>
                             <li>
-                                <a href="/tv/shows">Shows</a>
+                                <span><a href="/tv/shows">SHOWS</a></span>
                             </li>
                         </ul
                     ></li
                     ><li onclick="openNavSubmenu(this);"
                         ><span class="bse-submenu"
-                        ><a href="/radio">Radio</a></span
+                        ><a href="/radio">RADIO</a></span
                         ><ul>
                             <li>
-                                <a href="/radio"><b>LISTEN</b></a>
+                                <span><a href="/radio"><b>LISTEN</b></a></span>
                             </li>
                             <li>
-                                <a href="/radio/schedule">Schedule</a>
+                                <span><a href="/radio/schedule">Schedule</a></span>
                             </li>
                             <li>
-                                <a href="/radio/shows">Shows</a>
+                                <span><a href="/radio/shows">Shows</a></span>
                             </li>
                         </ul
                     ></li
                     ><li
-                        ><a href="/articles">Articles</a
+                        ><span><a href="/articles">ARTICLES<span></a
                     ></li
                     ><li
-                        ><a href="/about">About</a>
+                        ><span><a href="/about">ABOUT</a></span>
                     </li>
                 </ul>
             </nav>
         </header>
         <main>
-            <div id="show-banner">
-                <div id="banner-gradient"></div>
-                <div id="show-banner-content">
-                    <h1>Grab Bag</h1>
-                    <h2>Kent State's premiere sketch comedy show</h2>
-                    <div id="banner-button-wrapper">
-                        <a href="">Watch Season 1</a>
-                        <a href="">More Episodes</a>
-                    </a>
-                </div>
-            </div>
+
         </main>
