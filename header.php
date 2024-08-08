@@ -3,12 +3,12 @@
     <head>
         <meta charset="<?php bloginfo( 'charset' ); ?>">
         <meta name="viewport" content="width=device-width">
-        <link rel="stylesheet" href="/wp-content/themes/BlackSquirrelEntertainment/style.css?ver=2024.8.5.16">
+        <link rel="stylesheet" href="/wp-content/themes/BlackSquirrelEntertainment/style.css?ver=2024.8.7.7">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
         <script src="/wp-content/themes/BlackSquirrelEntertainment/main.js" charset="utf-8"></script>
-        <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/tv/shows/") && $_SERVER['REQUEST_URI'] != "/tv/shows/") {
+        <?php if ($_SERVER['REQUEST_URI'] == "/tv/" || (str_starts_with($_SERVER['REQUEST_URI'], "/tv/shows/") && $_SERVER['REQUEST_URI'] != "/tv/shows/")) {
             echo '
                 <style>
                 #bse-header {
@@ -16,14 +16,37 @@
                     z-index: 100000;
                 }
 
+                main {
+                    margin-left: 0px;
+                    margin-right: 0px;
+                    margin-top: 0px;
+                }
+
                 #nav-links, nav #toggled-nav, nav li ul, #blue-bar {
                     background-color: transparent;
                 }
 
                 nav #toggled-nav a:hover {
-                    background-color: var(--dark-blue);
+                    // background-color: var(--dark-blue);
                 }
 
+                </style>
+            ';
+        } ?>
+        <?php if (!str_starts_with($_SERVER['REQUEST_URI'], "/tv/") && !str_starts_with($_SERVER['REQUEST_URI'], "/radio/")) {
+            echo '
+                <style>
+                @media only screen and (min-aspect-ratio: 1 / 1)
+                {
+                    :root {
+                      --nav1-height: 90px;
+                      --nav2-height: 0px;
+                    }
+
+                    #nav-links {
+                        font-size: 50px;
+                    }
+                }
                 </style>
             ';
         } ?>
@@ -53,10 +76,10 @@
                                 <span><a href="/tv"><b>LIVE</b></a></span>
                             </li>
                             <li>
-                                <span><a href="/tv/schedule">SCHEDULE</a></span>
+                                <span><a href="/tv/schedule">Schedule</a></span>
                             </li>
                             <li>
-                                <span><a href="/tv/shows">SHOWS</a></span>
+                                <span><a href="/tv/shows">Shows</a></span>
                             </li>
                         </ul
                     ></li

@@ -2,7 +2,7 @@
     Theme Name: Black Squirrel Entertainment
     Author: Darien Yoder
     Description: Custom theme for BlackSquirrelRadio.com.
-    Version: 2024.8.5.16
+    Version: 2024.8.7.7
     Requires at least: 5.2
     Tested up to: 6.5
     Requires PHP: 7.4
@@ -13,6 +13,9 @@
   --white: #ffffff;
   --light-blue: #257bb1;
   --dark-blue: #003976;
+  --yellow: #ffd702;
+
+  --radio-bar-height: 30px;
 }
 
 #bse-html, #bse-body {
@@ -21,7 +24,7 @@
     left: 0px;
     padding: 0;
     margin: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Rubik", sans-serif;
     min-height: 100%;
     width: 100%;
     scale: 1;
@@ -46,6 +49,7 @@ h1 {
 
 #bse-header {
     position: relative;
+    transition: opacity 0.5s;
     /* background-color: white;
     color: black; */
 }
@@ -79,48 +83,162 @@ nav b::before {
 
 main {
     /* padding-top: 30px; */
-    padding-left: 30px;
-    padding-right: 30px;
+    /* padding-left: 30px;
+    padding-right: 30px; */
     position: relative;
 }
 
 /* Livestream */
 
 #livestream-wrapper {
-    display: flex;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
 }
 
 #livestream {
-    aspect-ratio: 16 / 9;
-    width: 100%;
-    flex: 1;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+
+#livestream-overlay {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212a0;
+    transition: opacity 0.5s;
+}
+
+#livestream-thumbnail {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100vw;
+    height: 100vh;
+}
+
+#play-button-wrapper {
+    position: relative;
+}
+
+#livestream-title {
+    position: absolute;
+    bottom: 100%;
+    left: calc(50% - 50vw);
+    width: 100vw;
+    z-index: 5;
+    margin-bottom: 15px;
+}
+
+#livestream-play-button {
+    height: 70px;
+    width: 70px;
+    padding: 40px;
+    border-radius: 100%;
+    background-color: #ffffffa0;
+    cursor: pointer;
+    scale: 1;
+    transition: scale 0.2s;
+}
+
+#livestream-play-button:hover {
+    /* padding: 50px; */
+    scale: 1.15;
 }
 
 #livestream-details {
     flex: 1;
 }
 
-#livestream-details h2 {
-    font-size: xx-large;
-    margin-top: 0px;
+#radio-player {
+    height: var(--radio-bar-height);
+    background-color: var(--dark-blue);
+    position: fixed;
+    bottom: 0px;
+    width: calc(100vw - 200px);
+    padding: 10px;
+    display: flex;
+    font-size: calc(var(--radio-bar-height) - 0px);
+    align-items: center;
+    margin: 0px 100px;
 }
 
-#livestream-details h3 {
-    font-size: x-large;
+#radio-play-button {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+#radio-player p {
+    margin: 0px;
 }
 
 /* Shows Page */
 
+#show-list-title {
+    margin-bottom: 20px;
+}
+
+#show-filter {
+    text-align: center;
+}
+
+#show-filter a {
+    font-size: 30px;
+    background-color: transparent;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#show-filter a:hover {
+    background-color: var(--dark-blue);
+}
+
 #show-grid {
-    width: 100%;
+    /* width: 100%; */
+    margin: 30px;
     display: grid;
     grid-template-columns: repeat(4, auto);
 }
 
 .show-entry {
-    margin: 20px;
-    aspect-ratio: 4 / 5;
+    margin: 10px;
+    margin-bottom: 30px;
+    aspect-ratio: 3 / 4; /*1.0 / 1.618;*/
     position: relative;
+    color: white;
+    text-decoration: none;
+}
+
+.show-entry p {
+    position: absolute;
+    top: 100%;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    margin: 0px;
+    font-size: 20px;
+    transition: top 0.1s;
+}
+
+.show-entry img:hover + p {
+    top: 102.5%;
 }
 
 .radio-show-grid .show-entry {
@@ -135,15 +253,22 @@ main {
     right: 0px;
     width: 100%;
     height: 100%;
+    scale: 1.0;
+    transition: scale 0.1s;
+    z-index: 2;
+    border-radius: 5px;
+}
+
+.show-entry img:hover {
+    scale: 1.05;
 }
 
 /* TV Show page */
 
 #show-banner {
     position: relative;
-    left: -30px;
     height: 100vh;
-    width: calc(100% + 60px);
+    width: 100vw;
     display: flex;
     align-items: center;
     background-size: cover;
@@ -209,6 +334,12 @@ main {
 .schedule-item img {
     height: 90px;
     width: 160px;
+    border-radius: 5px;
+}
+
+.radio-schedule-item img {
+    height: 90px;
+    width: 90px;
 }
 
 .schedule-item div h2 {
@@ -320,10 +451,12 @@ main {
 
     #show-grid {
         grid-template-columns: repeat(2, auto);
+        margin: 15px;
     }
 
     .show-entry {
-        margin: 10px;
+        margin: 7px;
+        margin-bottom: 27px;
     }
 }
 
@@ -332,8 +465,8 @@ main {
 @media only screen and (min-aspect-ratio: 1 / 1)
 {
     :root {
-      --nav1-height: 60px;
-      --nav2-height: 30px;
+      --nav1-height: 55px;
+      --nav2-height: 35px;
     }
 
     #bse-logo {
@@ -357,7 +490,7 @@ main {
     }
 
     #bse-title img:hover {
-        background-color: var(--dark-blue);
+        /* background-color: var(--dark-blue); */
     }
 
     #bse-header {
@@ -383,7 +516,7 @@ main {
         padding-left: 20px;
         padding-right: 20px;
         margin-top: 10px;
-        color: var(--white);
+        /* color: var(--white); */
     }
 
     nav ul {
@@ -391,6 +524,7 @@ main {
         display: inline-flex;
         justify-content: left;
         width: 100%;
+        color: var(--white);
     }
 
     nav li {
@@ -404,17 +538,26 @@ main {
     }
 
     nav li:hover {
-        background-color: var(--dark-blue);
+        /* background-color: var(--dark-blue); */
+    }
+
+    #bse-header a {
+        transition: color 0.2s;
+    }
+
+    #bse-header a:hover {
+        color: var(--yellow);
     }
 
     nav #toggled-nav {
-        background-color: var(--light-blue);
+        color: var(--yellow);
+        /* background-color: var(--light-blue); */
     }
 
     nav li ul {
         display: none;
         position: absolute;
-        background-color: var(--light-blue);
+        /* background-color: var(--light-blue); */
         top: var(--nav1-height);
         left: 0px;
         right: 0px;
@@ -429,6 +572,10 @@ main {
     } */
     /*nav li:hover ul, nav li ul:hover,*/ nav #toggled-nav ul {
         display: flex;
+    }
+
+    nav li ul li {
+        border-top: 1px solid white;
     }
 
     nav li ul li:hover {
