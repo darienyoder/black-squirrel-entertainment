@@ -1,12 +1,3 @@
-
-function main()
-{
-    if (window.location.pathname.startsWith("/tv/shows/") && window.location.pathname != "/tv/shows/")
-    {
-        document.getElementById("nav-links").scrollIntoView();
-    }
-}
-
 function toggleNav()
 {
     let nav = document.getElementById("nav-links");
@@ -22,7 +13,8 @@ function toggleNav()
 
 function openNavSubmenu(submenu)
 {
-    if (offestWidth / offsetHeight > 1.0)
+    return;
+    if (window.innerHeight / window.innerWidth > 1.0)
     {
         if (submenu.id == "toggled-nav")
         {

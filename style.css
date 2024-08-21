@@ -2,7 +2,7 @@
     Theme Name: Black Squirrel Entertainment
     Author: Darien Yoder
     Description: Custom theme for BlackSquirrelRadio.com.
-    Version: 2024.8.7.7
+    Version: 2024.8.13.6
     Requires at least: 5.2
     Tested up to: 6.5
     Requires PHP: 7.4
@@ -18,6 +18,11 @@
   --radio-bar-height: 30px;
 }
 
+@font-face {
+  font-family: Rubik;
+  src: url(/wp-content/fonts/rubik/Rubik-Regular.ttf);
+}
+
 #bse-html, #bse-body {
     position: absolute;
     top: 0px;
@@ -30,6 +35,7 @@
     scale: 1;
     background-color: #121212;
     color: white;
+    scroll-behavior: smooth;
 }
 
 /* WordPress Classes */
@@ -50,6 +56,7 @@ h1 {
 #bse-header {
     position: relative;
     transition: opacity 0.5s;
+    width: 100%;
     /* background-color: white;
     color: black; */
 }
@@ -86,6 +93,50 @@ main {
     /* padding-left: 30px;
     padding-right: 30px; */
     position: relative;
+    perspective: 2px;
+}
+
+/* Home Page */
+
+#front-gallery {
+    display: grid;
+    grid-template-areas:
+        'header header';
+        gap: 10px;
+    padding: 10px;
+}
+
+#front-gallery > * {
+    border: 2px solid white;
+    padding: 20px;
+    text-align: center;
+    font-size: 300%;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#front-gallery a {
+    color: var(--yellow);
+    text-decoration: none;
+}
+
+#front-gallery a:hover {
+    text-decoration: underline;
+}
+
+#front-gallery-header {
+    grid-area: 1 / 1 / span 1 / span 2;
+}
+
+#front-gallery-tv {
+    grid-area: 'tv';
+}
+
+#front-gallery-radio {
+    grid-area: 'radio';
 }
 
 /* Livestream */
@@ -115,10 +166,25 @@ main {
     width: 100vw;
     height: 100vh;
     display: flex;
+    /* display: none; */
     justify-content: center;
     align-items: center;
     background-color: #121212a0;
     transition: opacity 0.5s;
+    z-index: 10000;
+}
+
+#play-button-overlay {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #livestream-thumbnail {
@@ -129,17 +195,55 @@ main {
     right: 0px;
     width: 100vw;
     height: 100vh;
+    object-fit: cover;
+    pointer-events: none;
+    display: none;
+}
+
+#radio-thumbnail-wrapper {
+    /* flex: 1; */
+    margin-right: 20px;
+    display: flex;
+    aspect-ratio: 1 / 1;
+}
+
+#radio-thumbnail {
+    border-radius: 10px;
+    aspect-ratio: 1 / 1;
 }
 
 #play-button-wrapper {
     position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+#radio-player-controls {
+    flex: 1;
+    position: relative;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+#radio-player-controls * {
+    text-align: left;
+    margin: 0px;
+}
+
+#radio-player-details {
+    position: absolute;
+    top: 0px;
+    left: 0px;
 }
 
 #livestream-title {
     position: absolute;
     bottom: 100%;
-    left: calc(50% - 50vw);
-    width: 100vw;
+    /* left: calc(50% - 50vw); */
+    left: 0px;
+    width: 100%;
     z-index: 5;
     margin-bottom: 15px;
 }
@@ -268,10 +372,12 @@ main {
 #show-banner {
     position: relative;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     background-size: cover;
+    background-attachment: scroll;
+    background-position: top;
 }
 
 #banner-gradient {
@@ -312,11 +418,95 @@ main {
     color: black;
     text-decoration: none;
     margin-right: 20px;
+    transition: scale 0.2s;
 }
 
 #banner-button-wrapper a:first-child {
-    background-color: green;
+    background-color: var(--light-blue);
     color: white;
+}
+
+#banner-button-wrapper a:hover {
+    scale: 1.1
+}
+
+/* Episode Gallery */
+
+#season-title {
+    margin-bottom: 0px;
+}
+
+#episode-gallery {
+    display: flex;
+    flex-direction: row;
+    font-size: 30px;
+    padding: 20px;
+}
+
+#season-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0px 20px;
+}
+
+#season-list a {
+    display: block;
+    padding: 10px 40px;
+    min-width: calc(100% - 80px);
+    font-size: 120%;
+    border-bottom: solid 2px white;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+
+#season-list a:last-of-type {
+    border-bottom: none;
+}
+
+#season-list a:hover, #active-season-link {
+    color: var(--yellow);
+}
+
+#episode-list-wrapper {
+    flex: 1;
+}
+
+.episode-list {
+}
+
+.episode-entry {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    border-bottom: solid 1px white;
+}
+
+.episode-entry:last-of-type {
+    border-bottom: none;
+}
+
+.episode-entry img {
+    min-height: 100px;
+    aspect-ratio: 16/9;
+    margin-right: 20px;
+}
+
+.episode-entry p {
+    margin: 0px;
+}
+
+.episode-entry-number {
+    font-size: 60%;
+    color: #cccccc;
+}
+
+.episode-entry:hover .episode-entry-title {
+    text-decoration: underline;
+    /* color: var(--yellow); */
 }
 
 /* Schedules */
@@ -351,9 +541,12 @@ main {
 
 @media only screen and (max-aspect-ratio: 1 / 1)
 {
+    :root {
+        --header-height: 60px;
+    }
 
     #bse-header {
-        height: 90px;
+        height: var(--header-height);
         position: sticky;
         z-index: 10000;
         top: 0px;
@@ -366,30 +559,31 @@ main {
 
     #bse-logo {
         position: absolute;
-        top: 10px;
-        left: 10px;
-        --logo-size: 70px;
+        top: 5px;
+        left: 5px;
+        --logo-size: calc(var(--header-height) - 10px);
         height: var(--logo-size);
         width: var(--logo-size);
+        filter: brightness(0%);
     }
 
     #nav-burger {
         position: absolute;
-        top: 10px;
-        right: 10px;
-        height: 70px;
-        width: 70px;
+        top: 0px;
+        right: 0px;
+        height: var(--header-height);
+        width: var(--header-height);
     }
 
     #nav-burger img {
-        height: 70px;
-        width: 70px;
+        height: var(--header-height);
+        width: var(--header-height);
     }
 
     #bse-header nav {
         display: none;
         position: absolute;
-        top: 90px;
+        top: var(--header-height);;
         width: 100%;
         background: black;
         color: white
@@ -407,8 +601,8 @@ main {
     }
 
     #bse-header nav li a {
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         width: 100%;
         z-index: 2;
         font-size: 5vh;
@@ -426,7 +620,7 @@ main {
     }
 
     #bse-header nav li ul {
-        display: none;
+        /* display: none; */
     }
 
     #toggled-nav {
@@ -435,6 +629,15 @@ main {
 
     #bse-header #toggled-nav ul {
         display: block;
+    }
+
+    #front-gallery {
+        grid-template-areas:
+            'header';
+    }
+
+    #front-gallery-header {
+        grid-area: 1 / 1 / span 1 / span 1;
     }
 
     #livestream-wrapper {
@@ -457,6 +660,31 @@ main {
     .show-entry {
         margin: 7px;
         margin-bottom: 27px;
+    }
+
+    #banner-button-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    #banner-button-wrapper a {
+        text-align: center;
+    }
+
+    #episode-gallery {
+        flex-direction: column;
+    }
+
+    #season-title {
+        display: none;
+    }
+
+    #season-list {
+        display: none;
+    }
+
+    .episode-entry {
+        flex-direction: column;
     }
 }
 
@@ -593,5 +821,9 @@ main {
 
     #livestream-details {
         padding-left: 20px;
+    }
+
+    #season-dropdown {
+        display: none;
     }
 }

@@ -14,8 +14,6 @@
                 <a href="/home"><img id="bse-logo" src="assets/icon.png" alt=""></a>
                 <a id="bse-title" href="/home">
                     <img src="assets/darien-logo.png" alt="Black Squirrel Entertainment">
-                    <!-- <h1>BSE Test Webpage</h1>
-                    <h2>NOT the live website</h2> -->
                 </a>
                 <a id="nav-burger" ref="javascript:void(0);" class="icon" onclick="toggleNav();">
                     <img src="assets/menu-icon.png">
@@ -63,78 +61,12 @@
             </nav>
         </header>
         <main>
-<div id="livestream-wrapper" onmousemove="timeSinceCursorMove = 0.0;">
-    <img id="livestream-thumbnail" src="https://i.ytimg.com/vi_webp/HByF6FZ8tqc/maxresdefault.webp">
-    <div id="livestream-overlay">
-        <div id="play-button-wrapper">
-            <h1 id="livestream-title">Live now: Grab Bag</h1>
-            <img onclick="playLivestream();" id="livestream-play-button" src="assets/play-button.png">
-        </div>
-    </div>
-</div>
+
+            <iframe src="https://video.kent.edu/embed/secure/iframe/entryId/1_ykut3s1i/uiConfId/31544052/st/0" width="" height=""></iframe>
+
         </main>
 
-<script>
-
-var isPlaying = false;
-var timeSinceCursorMove = 0.0;
-
-function playLivestream()
-{
-    document.getElementById("livestream-thumbnail").remove();
-    document.getElementById("livestream-title").remove()
-    document.getElementById("livestream-wrapper").innerHTML = '<iframe id="livestream" src="https://www.youtube.com/embed/HByF6FZ8tqc?si=TUaodj2kHPxl_H14&autoplay=1&mute=1&controls=0" title="BSE Livestream" frameborder="0"></iframe>' + document.getElementById("livestream-wrapper").innerHTML
-    document.getElementById("livestream-play-button").style.padding = "0px";
-    document.getElementById("livestream-play-button").style.backgroundColor = "transparent";
-    document.getElementById("play-button-wrapper").remove();
-    document.getElementById("livestream-overlay").style.backgroundColor = "transparent";
-    document.getElementById("livestream-overlay").style.backgroundImage = "linear-gradient(to bottom, #121212ff, #00000000)";
-    isPlaying = true;
-}
-
-function increaseTime()
-{
-    timeSinceCursorMove += 0.1;
-    if (!isPlaying || timeSinceCursorMove < 1.0)
-    {
-        document.getElementById("livestream-overlay").style.opacity = 1.0;
-        document.getElementById("bse-header").style.opacity = 1.0;
-        document.getElementById("livestream-wrapper").style.cursor = "default";
-    }
-    else
-    {
-        document.getElementById("livestream-overlay").style.opacity = 0.0;
-        document.getElementById("bse-header").style.opacity = 0.0;
-        document.getElementById("livestream-wrapper").style.cursor = "none";
-    }
-}
-
-document.getElementById("bse-header").onmousemove = function(){timeSinceCursorMove = 0.0;};
-
-setInterval(increaseTime, 100);
-
-</script>
-
-
-
 <style>
-#bse-header {
-    position: absolute;
-    z-index: 100000;
-}
 
-main {
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
-}
-
-#nav-links, nav #toggled-nav, nav li ul, #blue-bar {
-    background-color: transparent;
-}
-
-nav #toggled-nav a:hover {
-    // background-color: var(--dark-blue);
-}
 
 </style>
