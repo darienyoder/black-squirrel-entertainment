@@ -20,7 +20,7 @@
 
 @font-face {
   font-family: Rubik;
-  src: url(/wp-content/fonts/rubik/Rubik-Regular.ttf);
+  src: url(/wp-content/fonts/rubik/Rubik-VariableFont_wght.ttf);
 }
 
 #bse-html, #bse-body {
@@ -490,7 +490,6 @@ main {
 }
 
 .episode-entry img {
-    min-height: 100px;
     aspect-ratio: 16/9;
     margin-right: 20px;
 }
@@ -508,6 +507,32 @@ main {
     text-decoration: underline;
     /* color: var(--yellow); */
 }
+
+/* Season Credits */
+
+#season-credits {
+    background-color: #303030;
+    padding-bottom: 50px;
+    font-size: 200%;
+    display: grid;
+    grid-column-gap: 4%;
+    justify-content: center;
+}
+
+#showrunner-credit {
+    font-size: 200%;
+    margin: 10px;
+    text-align: center;
+}
+
+#showrunner-credit a {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* #showrunner-credit a:hover {
+    text-decoration: none;
+} */
 
 /* Schedules */
 
@@ -686,6 +711,34 @@ main {
     .episode-entry {
         flex-direction: column;
     }
+
+    .episode-entry img {
+        min-height: 100px;
+    }
+
+    #season-credits {
+        grid-template-columns: 100%;
+        grid-column-gap: 0%
+    }
+
+    #season-credits h1 {
+        grid-column: 1 / span 1;
+    }
+
+    #season-credits p {
+        text-align: center;
+        margin: 10px 0px;
+    }
+
+    #season-credits p:nth-of-type(2n) {
+        margin-top: 0px;
+    }
+
+    #season-credits p:nth-of-type(2n+1) {
+        /* font-weight: bold; */
+        text-decoration: underline;
+        margin-bottom: 0px;
+    }
 }
 
 /* Desktop Only */
@@ -825,5 +878,26 @@ main {
 
     #season-dropdown {
         display: none;
+    }
+
+    .episode-entry img {
+        height: 100px;
+    }
+
+    #season-credits {
+        grid-template-columns: 48% 48%;
+    }
+
+    #season-credits h1 {
+        grid-column: 1 / span 2;
+    }
+
+    #season-credits p {
+        text-align: right;
+        margin: 10px 0px;
+    }
+
+    #season-credits p:nth-child(2n+1) {
+        text-align: left;
     }
 }

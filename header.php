@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
         <!-- <link href="" rel="stylesheet"> -->
         <?php echo '<script src="/wp-content/themes/BlackSquirrelEntertainment/main.js?ver='.$_SERVER['REQUEST_TIME'].'" charset="utf-8"></script>'; ?>
-        <?php if ($_SERVER['REQUEST_URI'] == "/tv/" || $_SERVER['REQUEST_URI'] == "/radio/" || (str_starts_with($_SERVER['REQUEST_URI'], "/tv/") && $_SERVER['REQUEST_URI'] != "/tv/shows/" && $_SERVER['REQUEST_URI'] != "/tv/schedule/")) {
+        <?php if ($_SERVER['REQUEST_URI'] == "/tv" || $_SERVER['REQUEST_URI'] == "/radio" || (str_starts_with($_SERVER['REQUEST_URI'], "/tv") && $_SERVER['REQUEST_URI'] != "/tv/shows" && $_SERVER['REQUEST_URI'] != "/tv/schedule")) {
             echo '
                 <style>
                 #bse-header {
@@ -33,7 +33,7 @@
                 </style>
             ';
         } ?>
-        <?php if (!str_starts_with($_SERVER['REQUEST_URI'], "/tv/") && (!str_starts_with($_SERVER['REQUEST_URI'], "/radio/") || true)) {
+        <?php if (!str_starts_with($_SERVER['REQUEST_URI'], "/tv") && !str_starts_with($_SERVER['REQUEST_URI'], "/radio")) {
             echo '
                 <style>
                 @media only screen and (min-aspect-ratio: 1 / 1)
@@ -52,7 +52,7 @@
         } ?>
         <?php wp_head(); ?>
     </head>
-    <body id="bse-body" <?php /*body_class();*/ ?>>
+    <body id="bse-body" onload="if(window.location.href.endsWith('/')&&window.location.pathname!='/'){window.location.href=window.location.href.slice(0,window.location.href.length-1);}" <?php /*body_class();*/ ?>>
         <?php /* wp_body_open(); */ ?>
         <header id="bse-header">
             <div>
@@ -84,29 +84,29 @@
                         </ul
                     ></li
                     ><li <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/radio")) {echo "id='toggled-nav'";} ?>
-                        ><span class=""
+                        ><span class="bse-submenu"
                         ><a href="/radio">Radio</a></span
-                        ><!--<ul>
+                        ><ul>
                             <li>
                                 <span><a href="/radio"><b>LIVE</b></a></span>
                             </li>
                             <li>
                                 <span><a href="/radio/schedule">Schedule</a></span>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <span><a href="/radio/shows">Shows</a></span>
-                            </li>
+                            </li> -->
                         </ul
-                    >--></li
+                    ></li
                     ><!--<li
                         ><span><a href="/articles">Articles</a></span
                     ></li
                     > --><li
                         ><span><a href="/about">About</a></span
                     ></li
-                    ><!--<li
-                        ><span><a href="/join">Join</a></span
-                    ></li>-->
+                    ><li
+                        ><span><a href="/contact">Contact</a></span
+                    ></li>
                 </ul>
                 <!-- <div id="blue-bar"></div> -->
             </nav>
