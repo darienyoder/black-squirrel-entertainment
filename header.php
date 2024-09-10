@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
         <!-- <link href="" rel="stylesheet"> -->
         <?php echo '<script src="/wp-content/themes/BlackSquirrelEntertainment/main.js?ver='.$_SERVER['REQUEST_TIME'].'" charset="utf-8"></script>'; ?>
-        <?php if ($_SERVER['REQUEST_URI'] == "/tv" || $_SERVER['REQUEST_URI'] == "/radio" || (str_starts_with($_SERVER['REQUEST_URI'], "/tv") && $_SERVER['REQUEST_URI'] != "/tv/shows" && $_SERVER['REQUEST_URI'] != "/tv/schedule")) {
+        <?php if ($_SERVER['REQUEST_URI'] == "/tv" || $_SERVER['REQUEST_URI'] == "/radio" || $_SERVER['REQUEST_URI'] == "/article" || (str_starts_with($_SERVER['REQUEST_URI'], "/tv") && $_SERVER['REQUEST_URI'] != "/tv/shows" && $_SERVER['REQUEST_URI'] != "/tv/schedule")) {
             echo '
                 <style>
                 #bse-header {
@@ -33,7 +33,7 @@
                 </style>
             ';
         } ?>
-        <?php if (!str_starts_with($_SERVER['REQUEST_URI'], "/tv") && !str_starts_with($_SERVER['REQUEST_URI'], "/radio")) {
+        <?php if (!str_starts_with($_SERVER['REQUEST_URI'], "/tv") && !str_starts_with($_SERVER['REQUEST_URI'], "/radio") && !str_starts_with($_SERVER['REQUEST_URI'], "/podcasts") && !str_starts_with($_SERVER['REQUEST_URI'], "/article")) {
             echo '
                 <style>
                 @media only screen and (min-aspect-ratio: 1 / 1)
@@ -45,6 +45,21 @@
 
                     #nav-links {
                         font-size: 50px;
+                    }
+                }
+                </style>
+            ';
+        } ?>
+        <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/article/")) {
+            echo '
+                <style>
+                main {
+                    margin: 0px 200px;
+                }
+                @media only screen and (max-aspect-ratio: 1 / 1)
+                {
+                    main {
+                        margin: 0px 10px;
                     }
                 }
                 </style>
@@ -83,7 +98,7 @@
                             </li>
                         </ul
                     ></li
-                    ><li <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/radio")) {echo "id='toggled-nav'";} ?>
+                    ><li <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/radio") || str_starts_with($_SERVER['REQUEST_URI'], "/podcasts")) {echo "id='toggled-nav'";} ?>
                         ><span class="bse-submenu"
                         ><a href="/radio">Radio</a></span
                         ><ul>
@@ -93,15 +108,30 @@
                             <li>
                                 <span><a href="/radio/schedule">Schedule</a></span>
                             </li>
+                            <li>
+                                <span><a href="/podcasts">Podcasts</a></span>
+                            </li>
+                        </ul
+                    ></li
+                    ><li <?php if (str_starts_with($_SERVER['REQUEST_URI'], "/article")) {echo "id='toggled-nav'";} ?>
+                        ><span class="bse-submenu"
+                        ><a href="/articles">Articles</a></span
+                        ><ul>
+                            <li>
+                                <span><a href="/articles">All</a></span>
+                            </li>
+                            <li>
+                                <span><a href="/articles">Sports</a></span>
+                            </li>
+                            <!-- <li>
+                                <span><a href="/articles">Music</a></span>
+                            </li> -->
                             <!-- <li>
                                 <span><a href="/radio/shows">Shows</a></span>
                             </li> -->
                         </ul
                     ></li
-                    ><!--<li
-                        ><span><a href="/articles">Articles</a></span
-                    ></li
-                    > --><li
+                    ><li
                         ><span><a href="/about">About</a></span
                     ></li
                     ><li
