@@ -6,7 +6,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
-        <script src="main.js" charset="utf-8"></script>
+        <!-- <script src="main.js" charset="utf-8"></script> -->
     </head>
     <body id="bse-body">
         <header id="bse-header">
@@ -62,18 +62,71 @@
         </header>
         <main>
 
-            <div style="background-color:red; position:absolute; top:0px; left:0px; width:100%; height:100%;">
-                <div>
-
-                </div>
-                <div>
-
-                </div>
+<div id="home-page-gallery">
+    <div id="home-page-left">
+        <div id="tv-button">
+            <a href="/tv" class="home-page-button-left">
+                <h1>TV</h1>
+            </a>
+            <div class="home-page-button-right">
+                <a href="/tv">Watch</a>
+                <a href="/tv/schedule">Schedule</a>
+                <a href="/tv/shows">Shows</a>
             </div>
+        </div>
+        <div id="radio-button">
+            <a href="/radio" class="home-page-button-left">
+                <h1>Radio</h1>
+            </a>
+            <div class="home-page-button-right">
+                <a href="/radio">Listen</a>
+                <a href="/radio/schedule">Schedule</a>
+                <a href="/radio/podcasts">Podcasts</a>
+            </div>
+        </div>
+    </div>
+    <div id="home-page-right">
+        <h2 style="margin-top:0px; border-bottom:2px solid white;">Latest from Black Squirrel Entertainment</h2>
+        <div class="home-page-featured">
+            <a href="/tv" class="home-page-featured-thumbnail">
+            </a>
+            <div class="home-page-featured-content">
+                <h2>New Episode!</h2>
+                <a href="/tv">Listen Now</a>
+            </div>
+        </div>
+        <div class="home-page-featured">
+            <a href="/tv" class="home-page-featured-thumbnail">
+            </a>
+            <div class="home-page-featured-content">
+                <h2>New Episode!</h2>
+                <a href="/tv">Listen Now</a>
+            </div>
+        </div>
+        <div class="home-page-featured">
+            <a href="/tv" class="home-page-featured-thumbnail">
+            </a>
+            <div class="home-page-featured-content">
+                <h2>New Episode!</h2>
+                <a href="/tv">Listen Now</a>
+            </div>
+        </div>
+        <div class="home-page-featured">
+            <a href="/tv" class="home-page-featured-thumbnail">
+            </a>
+            <div class="home-page-featured-content">
+                <h2>New Episode!</h2>
+                <a href="/tv">Listen Now</a>
+            </div>
+        </div>
+    </div>
+</div>
 
         </main>
 
-<style>
-
-
-</style>
+<script>
+window.addEventListener("wheel", event => {
+    console.log("Scrolling");
+    document.getElementById("home-page-right").scrollTop += event.deltaY; //window.scrollY || document.documentElement.scrollTop;
+});
+</script>

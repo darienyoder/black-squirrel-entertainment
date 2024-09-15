@@ -16,10 +16,11 @@
                     z-index: 100000;
                 }
 
-                main {
+                main, #bse-body.customize-support main {
                     margin-left: 0px;
                     margin-right: 0px;
                     margin-top: 0px;
+                    top: 0px;
                 }
 
                 #nav-links, nav #toggled-nav, nav li ul, #blue-bar {
@@ -118,10 +119,10 @@
                         ><a href="/articles">Articles</a></span
                         ><ul>
                             <li>
-                                <span><a href="/articles">All</a></span>
+                                <span><a href="/articles">Recent</a></span>
                             </li>
                             <li>
-                                <span><a href="/articles">Sports</a></span>
+                                <span><a href="/articles/archive">Archive</a></span>
                             </li>
                             <!-- <li>
                                 <span><a href="/articles">Music</a></span>
