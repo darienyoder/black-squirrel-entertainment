@@ -1,0 +1,19 @@
+#bse-header {
+    position: absolute;
+    z-index: 100000;
+}
+
+main, #bse-body.customize-support main {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    top: 0px;
+}
+
+#nav-links, nav #toggled-nav, nav li ul, #blue-bar {
+    background-color: transparent;
+}
+
+nav #toggled-nav a:hover {
+    // background-color: var(--dark-blue);
+}

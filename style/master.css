@@ -31,7 +31,7 @@
     margin: 0;
     margin-top: 0px !important;
     font-family: "Rubik", sans-serif;
-    min-height: 100%;
+    min-height: 100vh;
     width: 100%;
     scale: 1;
     background-color: #121212;
@@ -41,12 +41,12 @@
 
 #bse-body.customize-support {
     padding-top: var(--wp-admin--admin-bar--height) !important;
-    min-height: calc(100% - var(--wp-admin--admin-bar--height));
+    min-height: calc(100vh - var(--wp-admin--admin-bar--height));
 }
 
 #bse-body.customize-support main {
-    top: calc(var(--nav1-height) + var(--nav2-height) + var(--wp-admin--admin-bar--height));
-    min-height: calc(100% - var(--nav1-height) - var(--nav2-height) - var(--wp-admin--admin-bar--height));
+    /* top: calc(var(--nav1-height) + var(--nav2-height) + var(--wp-admin--admin-bar--height)); */
+    min-height: calc(100vh - var(--nav1-height) - var(--nav2-height) - var(--wp-admin--admin-bar--height));
 }
 
 /* WordPress Classes */
@@ -69,9 +69,10 @@ a {
 /* Header */
 
 #bse-header {
-    position: relative;
+    position: absolute;
     transition: opacity 0.5s;
     width: 100%;
+    z-index: 999;
     /* background-color: white;
     color: black; */
 }
@@ -111,9 +112,9 @@ main {
     /* padding-top: 30px; */
     /* padding-left: 30px;
     padding-right: 30px; */
-    position: absolute;
+    position: relative;
     top: calc(var(--nav1-height) + var(--nav2-height));
-    min-height: calc(100% - var(--nav1-height) - var(--nav2-height));
+    min-height: calc(100vh - var(--nav1-height) - var(--nav2-height));
     left: 0px;
     right: 0px;
     perspective: 2px;
