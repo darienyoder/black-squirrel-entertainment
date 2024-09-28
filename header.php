@@ -69,14 +69,15 @@
         <div id="nav-style"></div>
         <?php wp_head(); ?>
     </head>
-    <body id="bse-body" onload="if(window.location.href.endsWith('/')&&window.location.pathname!='/'){window.location.href=window.location.href.slice(0,window.location.href.length-1);}else{setInterval(updateStyle, 1);}" <?php /*body_class();*/ ?>>
+    <body id="bse-body" onload="if(window.location.href.endsWith('/')&&window.location.pathname!='/'){window.location.href=window.location.href.slice(0,window.location.href.length-1);}else{setInterval(updateStyle, 1);setupLinkDetection();}" <?php /*body_class();*/ ?>>
         <?php /* wp_body_open(); */ ?>
         <header id="bse-header">
+            <div id="progress-bar"><div></div></div>
             <div>
-                <a href="/">
+                <a href="https://blacksquirrelradio.com/">
                     <img id="bse-logo" src="/wp-content/themes/BlackSquirrelEntertainment/assets/icon_light.png" alt="">
                 </a>
-                <a id="bse-title" href="/">
+                <a id="bse-title" href="https://blacksquirrelradio.com/">
                     <img src="/wp-content/themes/BlackSquirrelEntertainment/assets/icon_light.png" alt="Black Squirrel Entertainment" height="30px">
                 </a>
                 <a id="nav-burger" ref="javascript:void(0);" class="icon" onclick="toggleNav();">

@@ -1,8 +1,8 @@
     </main>
 <!-- </div> -->
-<div style="position:fixed; bottom:0px; left:0px; right:0px; height:100px; background-color:blue; color:white;">
+<!-- <div style="position:fixed; bottom:0px; left:0px; right:0px; height:100px; background-color:blue; color:white;">
 
-</div>
+</div> -->
 <?php get_sidebar(); ?>
 </div>
 <footer id="footer" role="contentinfo">
