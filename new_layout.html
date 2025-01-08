@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <header>
+            <a class="home-link">
+                <img class="nav-logo" src="" alt="">
+                <span class="">BSE</span>
+            </a>
+            <nav>
+                <div id="nav-links" class="nav-links">
+                    <a href="/tv">TV</a>
+                    <a href="/radio">Radio</a>
+                    <a href="/games">Games</a>
+                    <a href="/more">More</a>
+                </div>
+                <div class="nav-burger" onclick="toggleNav();">
+
+                </div>
+            </nav>
+        </header>
+
+        <!-- <div id="bottom-nav">
+            <a>A</a>
+            <a>B</a>
+            <a>C</a>
+            <a>D</a>
+        </div> -->
+    </body>
+</html>
+<script>
+
+function toggleNav()
+{
+    if (document.getElementById('nav-links').style.display == "flex")
+        document.getElementById('nav-links').style.display = "none";
+    else
+        document.getElementById('nav-links').style.display = "flex";
+}
+
+</script>
+<style>
+
+    html, body {
+        margin: 0px;
+        padding: 0px;
+        font-size: 20px;
+    }
+
+    header {
+        background-color: #666;
+        height: 80px;
+        display: flex;
+        flex-direction: row;
+        padding: 5px;
+        position: sticky;
+        top: 0px;
+    }
+
+    .home-link {
+        background-color: yellow;
+        width: max-content;
+        display: flex;
+        font-size: 70px;
+    }
+
+    .nav-logo {
+        background-color: red;
+        aspect-ratio: 1;
+    }
+
+    nav {
+        flex: 1;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .nav-burger {
+        aspect-ratio: 1;
+        background-color: green;
+        z-index: 1;
+    }
+
+    #nav-links {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100vh;
+        background-color: #ccffcc55;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #nav-links a {
+        font-size: 50px;
+        background-color: purple;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0px 10px 0px;
+    }
+
+    #nav-links a:hover {
+        background-color: pink;
+    }
+
+    #bottom-nav {
+        position: fixed;
+        bottom: 0px;
+        width: 100%;
+        background-color: red;
+        display: flex;
+        justify-content: space-around;
+        padding: 5px;
+    }
+
+    #bottom-nav a {
+        background-color: yellow;
+        padding: 20px;
+    }
+
+    @media only screen and (min-width: 700px) {
+        #nav-links {
+            position: static;
+            flex: 1;
+            width: auto;
+            height: auto;
+            background-color: #ccffcc55;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-burger {
+            display: none;
+        }
+    }
+
+</style>

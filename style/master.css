@@ -1,6 +1,5 @@
 /*
     Theme Name: Black Squirrel Entertainment
-    Author: Darien Yoder
     Description: Custom theme for BlackSquirrelRadio.com.
     Version: 2024.8.13.6
     Requires at least: 5.2
@@ -33,7 +32,7 @@
     font-family: "Rubik", sans-serif;
     height: 100vh;
     width: 100%;
-    scale: 1;
+    /* scale: 1; */
     background-color: #121212;
     color: white;
     scroll-behavior: smooth;
@@ -41,6 +40,8 @@
 
 #bse-body {
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 #bse-body.customize-support {
@@ -73,7 +74,7 @@ a {
 /* Header */
 
 #bse-header {
-    position: absolute;
+    /* position: absolute; */
     transition: opacity 0.5s;
     width: 100%;
     z-index: 999;
@@ -136,10 +137,12 @@ main {
     /* padding-left: 30px;
     padding-right: 30px; */
     position: relative;
-    top: calc(var(--nav1-height) + var(--nav2-height));
-    min-height: calc(100vh - var(--nav1-height) - var(--nav2-height) - 35px);
+    /* top: calc(var(--nav1-height) + var(--nav2-height)); */
+    flex: 1;
+    /* min-height: calc(100vh - var(--nav1-height) - var(--nav2-height) - 35px); */
     left: 0px;
     right: 0px;
+    overflow-y: auto;
     /* perspective: 2px; */
 }
 
@@ -321,7 +324,7 @@ main {
     position: absolute;
     top: 0px;
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
 #livestream {
@@ -331,7 +334,7 @@ main {
     left: 0px;
     right: 0px;
     width: 100%;
-    height: 100vh;
+    height: 100%;
 }
 
 #livestream-overlay {
@@ -341,7 +344,7 @@ main {
     left: 0px;
     right: 0px;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     /* display: none; */
     justify-content: center;
@@ -349,6 +352,7 @@ main {
     background-color: #121212a0;
     transition: opacity 0.5s;
     z-index: 10000;
+    gap: 20px;
 }
 
 #play-button-overlay {
@@ -358,7 +362,7 @@ main {
     left: 0px;
     right: 0px;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -371,7 +375,7 @@ main {
     left: 0px;
     right: 0px;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     object-fit: cover;
     pointer-events: none;
     filter: brightness(30%);
@@ -457,7 +461,7 @@ main {
     background-color: var(--dark-blue);
     position: fixed;
     bottom: 0px;
-    width: calc(100vw - 200px);
+    width: calc(100% - 200px);
     padding: 10px;
     display: flex;
     font-size: calc(var(--radio-bar-height) - 0px);
@@ -840,6 +844,105 @@ main {
     display: none;
 }
 
+/* Footer */
+
+#radio-footer {
+    z-index: 9999999999;
+    display: none;
+    position: relative;
+    height: 100px;
+    background-color: #363636;
+    color: white;
+}
+
+.lds-spinner {
+  /* change color here */
+  color: white;
+}
+.lds-spinner,
+.lds-spinner div,
+.lds-spinner div:after {
+  box-sizing: border-box;
+}
+.lds-spinner {
+  color: currentColor;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-spinner div {
+  transform-origin: 40px 40px;
+  animation: lds-spinner 1.2s linear infinite;
+}
+.lds-spinner div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 3.2px;
+  left: 36.8px;
+  width: 6.4px;
+  height: 17.6px;
+  border-radius: 20%;
+  background: currentColor;
+}
+.lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
+}
+.lds-spinner div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
+}
+.lds-spinner div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
+}
+.lds-spinner div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.8s;
+}
+.lds-spinner div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 /* Mobile Only */
 
 @media only screen and (max-aspect-ratio: 1 / 1)
@@ -930,7 +1033,7 @@ main {
         background-color: #202020;
     }
 
-    #bse-header #toggled-nav ul {
+    #bse-header #toggled-nav ul, #bse-header #former-toggled-nav ul {
         display: block;
     }
 
@@ -1057,8 +1160,10 @@ main {
 @media only screen and (min-aspect-ratio: 1 / 1)
 {
     :root {
-      --nav1-height: 55px;
-      --nav2-height: 35px;
+      /* --nav1-height: 55px;
+      --nav2-height: 35px; */
+        --nav1-height: 45px;
+        --nav2-height: 45px;
     }
 
     #bse-logo {
@@ -1171,7 +1276,7 @@ main {
     /* li:hover ~ #toggled-nav ul {
         display: none;
     } */
-    /*nav li:hover ul, nav li ul:hover,*/ nav #toggled-nav ul {
+    /*nav li:hover ul, nav li ul:hover,*/ nav #toggled-nav ul, nav #former-toggled-nav, ul {
         display: flex;
         opacity: 1.0;
     }

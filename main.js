@@ -74,11 +74,14 @@ function updateStyle()
             && !url.startsWith("/article")
         ) newStyle += getStylesheetElement("collapsed-nav.css");
 
+        if (url == "/radio")
+            newStyle += getStylesheetElement("radio-player.css");
+
         if (style.innerHTML != newStyle)
             style.innerHTML = newStyle;
 
 
-
+        let anyFound = false;
         for (var item of document.getElementsByClassName("bse-submenu"))
         {
             let link = item.children[0].href.replace("https://blacksquirrelradio.com", "");
@@ -87,16 +90,32 @@ function updateStyle()
             {
                 if (url.startsWith(prefix))
                 {
+                    for (var item2 of document.getElementsByClassName("bse-submenu"))
+                    {
+                        if (item2.parentElement.id == "toggled-nav")
+                            item2.parentElement.id = "former-toggled-nav";
+                        else
+                            item2.parentElement.id = "";
+                    }
                     item.parentElement.id = "toggled-nav";
                     found = true;
+                    anyFound = true;
                     break;
                 }
             }
-            if (!found)
-            {
-                item.parentElement.id = "";
-            }
+            // if (!found)
+            // {
+            //     item.parentElement.id = "";
+            // }
         }
+        if (!anyFound)
+            for (var item2 of document.getElementsByClassName("bse-submenu"))
+            {
+                if (item2.parentElement.id == "toggled-nav")
+                    item2.parentElement.id = "former-toggled-nav";
+                else
+                    item2.parentElement.id = "";
+            }
 
         if (oldUrl != "")
         {
@@ -170,6 +189,10 @@ function togglePlayer()
     if (document.getElementById("tv-livestream-loader"))
     {
         playLivestream();
+    }
+    else if (document.getElementById("radio-thumbnail"))
+    {
+        document.getElementById("radio-footer").style.display = "block";
     }
 }
 

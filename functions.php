@@ -132,3 +132,12 @@ return count( $comments_by_type['comment'] );
 return $count;
 }
 }
+
+// // Code to disable author pages
+// function disable_author_archives() {
+//     if (is_author()) {
+//         wp_redirect(home_url());
+//         exit;
+//     }
+// }
+// add_action('template_redirect', 'disable_author_archives');

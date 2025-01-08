@@ -91,7 +91,7 @@
                         ><a href="/tv">TV</a></span
                         ><ul>
                             <li>
-                                <span><a href="/tv"><b>LIVE</b></a></span>
+                                <span><a href="/tv">Watch</a></span>
                             </li>
                             <li>
                                 <span><a href="/tv/schedule">Schedule</a></span>
@@ -106,7 +106,7 @@
                         ><a href="/radio">Radio</a></span
                         ><ul>
                             <li>
-                                <span><a href="/radio"><b>LIVE</b></a></span>
+                                <span><a href="/radio">Listen</a></span>
                             </li>
                             <li>
                                 <span><a href="/radio/schedule">Schedule</a></span>
